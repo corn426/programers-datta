@@ -1,0 +1,11 @@
+-- 문제: 조건에 맞는 도서 리스트 출력하기
+-- 레벨: 1
+-- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/144853
+--
+-- 힌트:
+-- 1. DATE_FORMAT(날짜, 형식): 날짜를 원하는 형식으로 변환 (예: '%Y-%m-%d')
+-- 2. YEAR(날짜): 날짜에서 연도만 추출
+-- 3. WHERE 조건1 AND 조건2: 여러 조건을 모두 만족해야 함
+-- 4. ORDER BY 컬럼 ASC: 오름차순 정렬
+--
+-- WEEK4: 여기에 SQL을 작성하세요

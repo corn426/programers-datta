@@ -1,0 +1,13 @@
+-- 문제: 자동차 대여 기록에서 대여중 / 대여 가능 여부 구하기
+-- 레벨: 3
+-- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/157340
+--
+-- 힌트:
+-- 1. CASE WHEN 조건 THEN 값1 ELSE 값2 END: 조건에 따라 다른 값 반환
+-- 2. GROUP BY 컬럼: 같은 값끼리 그룹화 (자동차별로 묶기)
+-- 3. MAX(): 그룹 내 최댓값 (하나라도 대여중이면 1)
+-- 4. BETWEEN 날짜1 AND 날짜2: 날짜 범위 체크
+-- 5. 중첩 CASE: CASE 안에 또 CASE 사용 가능
+-- 주의: 한 자동차가 여러 대여 기록을 가질 수 있음!
+--
+-- WEEK4: 여기에 SQL을 작성하세요

@@ -49,7 +49,6 @@ pnpm install
 ### Step 1: 문제 파일 열기
 
 ```typescript
-// WEEK1: 여기에 코드를 작성하세요
 function solution(new_id: string): string {
   // 힌트를 보고 코드 작성
   return "";
@@ -106,7 +105,6 @@ import { describe, test, expect } from "vitest";
  */
 
 function solution(new_id: string): string {
-  // WEEK4: 여기에 코드를 작성하세요
   return "";
 }
 
@@ -127,8 +125,6 @@ describe("신규 아이디 추천", () => {
 -- 1. COUNT(*): 행의 개수 세기
 -- 2. YEAR(날짜): 연도 추출
 -- 3. BETWEEN A AND B: 범위 조건
-
--- WEEK4: 여기에 SQL을 작성하세요
 ```
 
 SQL은 **MySQL 문법**으로 작성하되, 로컬 테스트는 SQLite(메모리 DB)로 자동 변환됩니다.

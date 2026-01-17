@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "gruntfuggly.todo-tree", // 주차별 문제 추적
+    "dbaeumer.vscode-eslint", // 코드 품질
+    "esbenp.prettier-vscode",  // 코드 포맷터
+    "vitest.explorer", // 테스트 실행
+    "mtxr.sqltools" // SQL 도구
+  ],
+  "unwantedRecommendations": []
+}

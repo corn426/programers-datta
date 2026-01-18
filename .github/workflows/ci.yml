@@ -14,7 +14,7 @@ jobs:
     
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version: [22.x]
       fail-fast: false  # 하나 실패해도 다른 버전 계속 테스트
     
     steps:
@@ -32,11 +32,32 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
     
+    - name: 🔧 Install build tools (for better-sqlite3)
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential python3
+    
     - name: 📚 Install dependencies
-      run: pnpm install --frozen-lockfile
+      run: pnpm install --frozen-lockfile --ignore-scripts=false
+    
+    - name: 🔨 Build native modules (better-sqlite3)
+      run: |
+        echo "Building better-sqlite3 native module..."
+        cd node_modules/.pnpm/better-sqlite3@12.6.2/node_modules/better-sqlite3
+        npm run build-release
+        cd -
+        echo "✅ better-sqlite3 built successfully"
     
     - name: 🧪 Run tests
       run: pnpm test:run
+    
+    - name: ✅ Test passed
+      if: success()
+      run: echo "All tests passed successfully!"
+    
+    - name: ❌ Test failed  
+      if: failure()
+      run: echo "Some tests failed. Please check the logs above."
     
     - name: 📊 Test Summary
       if: always()

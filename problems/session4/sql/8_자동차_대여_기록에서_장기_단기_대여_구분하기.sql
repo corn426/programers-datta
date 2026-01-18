@@ -1,0 +1,12 @@
+-- 문제: 자동차 대여 기록에서 장기/단기 대여 구분하기
+-- 레벨: 1
+-- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/151138
+--
+-- 힌트:
+-- 1. DATEDIFF(날짜1, 날짜2): 두 날짜 사이의 일수 계산
+-- 2. MONTH(날짜): 날짜에서 월만 추출 (1~12)
+-- 3. CASE WHEN 조건 THEN 값1 ELSE 값2 END: 조건 분기
+-- 4. 대여 기간 = 종료일 - 시작일 + 1 (당일 포함)
+-- 5. WHERE YEAR(날짜) = 2022 AND MONTH(날짜) = 9: 2022년 9월 필터링
+--
+-- WEEK4: 여기에 SQL을 작성하세요

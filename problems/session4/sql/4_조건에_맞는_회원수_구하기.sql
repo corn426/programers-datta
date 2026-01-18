@@ -1,0 +1,11 @@
+-- 문제: 조건에 맞는 회원수 구하기
+-- 레벨: 1
+-- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/131535
+--
+-- 힌트:
+-- 1. COUNT(*): 조건에 맞는 행의 개수를 세는 집계 함수
+-- 2. YEAR(날짜): 날짜에서 연도만 추출하는 함수
+-- 3. BETWEEN A AND B: A 이상 B 이하 범위 조건
+-- 4. SELECT COUNT(*) AS 별칭 FROM 테이블 WHERE 조건
+--
+-- WEEK4: 여기에 SQL을 작성하세요

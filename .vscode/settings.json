@@ -1,0 +1,65 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // Todo Tree 설정
+  "todo-tree.general.tags": [
+    "TODO",
+    "FIXME",
+    "NOTE",
+    "WEEK1",
+    "WEEK2",
+    "WEEK3",
+    "WEEK4",
+    "WEEK5",
+    "WEEK6",
+    "WEEK7",
+    "WEEK8",
+    "WEEK9",
+    "WEEK10"
+  ],
+  "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|--) *($TAGS))",
+  "todo-tree.filtering.excludeGlobs": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.git/**",
+    "**/pnpm-lock.yaml"
+  ],
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "icon": "check",
+      "iconColour": "#ffeb3b"
+    },
+    "WEEK4": {
+      "icon": "calendar",
+      "iconColour": "#2196f3"
+    }
+  },
+
+  // TypeScript 설정
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+
+  // 파일 제외
+  "files.exclude": {
+    "**/.git": true,
+    "**/node_modules": true,
+    "**/.DS_Store": true
+  },
+
+  // SQL 파일 설정
+  "[sql]": {
+    "editor.defaultFormatter": "mtxr.sqltools"
+  },
+
+  // 자동 저장
+  "files.autoSave": "onFocusChange",
+
+  // 미니맵
+  "editor.minimap.enabled": true,
+  "editor.minimap.maxColumn": 80
+}

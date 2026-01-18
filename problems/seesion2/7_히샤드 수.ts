@@ -37,11 +37,11 @@ describe('하샤드 수', () => {
   });
 
   test('입력 11일 때', () => {
-    expect(solution(11)).toBe(true);
+    expect(solution(11)).toBe(false);
   });
 
   test('입력 12일 때', () => {
-    expect(solution(12)).toBe(false);
+    expect(solution(12)).toBe(true);
   });
 
   test('입력 13일 때', () => {

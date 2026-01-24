@@ -31,10 +31,6 @@ const countByElements = (arr: number[]): { value: number; count: number }[] => {
   return counts;
 };
 
-const aa = "a";
-const add = (a, b) => a + b;
-const add = (a, b) => aa + b + a;
-
 // 최댓값 count 구하는 함수
 const getMax = (items: { value: number; count: number }[]): number => {
   let max = 0;

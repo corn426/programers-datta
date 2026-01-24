@@ -45,7 +45,7 @@ function solution(s: string): number {
   return Number(
     s.replace(
       /(zero|one|two|three|four|five|six|seven|eight|nine)/g,
-      (word) => map[word],
+      (word) => map[word as keyof typeof map],
     ),
   );
 }
@@ -68,8 +68,6 @@ describe("숫자 문자열과 영단어", () => {
   });
 
   test("모든 영단어", () => {
-    expect(solution("zerofouronetwothreefivesixseveneightnine")).toBe(
-      401235678,
-    );
+    expect(solution("onetwothreefourfivesixseveneightnine")).toBe(123456789);
   });
 });

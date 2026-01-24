@@ -2,69 +2,64 @@ name: CI Tests
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
   workflow_dispatch:
 
 jobs:
   test:
     name: Test on Node.js ${{ matrix.node-version }}
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [22.x]
-      fail-fast: false  # 하나 실패해도 다른 버전 계속 테스트
-    
+      fail-fast: false # 하나 실패해도 다른 버전 계속 테스트
+
     steps:
-    - name: 📥 Checkout code
-      uses: actions/checkout@v6
-    
-    - name: 📦 Setup pnpm
-      uses: pnpm/action-setup@v4
-      with:
-        version: 10
-    
-    - name: 🟢 Setup Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
-    
-    - name: 🔧 Install build tools (for better-sqlite3)
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y build-essential python3
-    
-    - name: 📚 Install dependencies
-      run: pnpm install --frozen-lockfile --ignore-scripts=false
-    
-    - name: 🔨 Build native modules (better-sqlite3)
-      run: |
-        echo "Building better-sqlite3 native module..."
-        cd node_modules/.pnpm/better-sqlite3@12.6.2/node_modules/better-sqlite3
-        npm run build-release
-        cd -
-        echo "✅ better-sqlite3 built successfully"
-    
-    - name: 🧪 Run tests
-      run: pnpm test:run
-    
-    - name: ✅ Test passed
-      if: success()
-      run: echo "All tests passed successfully!"
-    
-    - name: ❌ Test failed  
-      if: failure()
-      run: echo "Some tests failed. Please check the logs above."
-    
-    - name: 📊 Test Summary
-      if: always()
-      run: |
-        echo "### Test Results 🧪" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "✅ Tests completed on Node.js ${{ matrix.node-version }}" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
-        echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+      - name: 📥 Checkout code
+        uses: actions/checkout@v6
+
+      - name: � Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: 🔧 Install build tools (for better-sqlite3)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential python3
+
+      - name: 📚 Install dependencies
+        run: npm ci
+
+      - name: 🔨 Build native modules (better-sqlite3)
+        run: |
+          echo "Building better-sqlite3 native module..."
+          cd node_modules/better-sqlite3
+          npm run build-release
+          cd -
+          echo "✅ better-sqlite3 built successfully"
+
+      - name: 🧪 Run tests
+        run: npm run test:run
+
+      - name: ✅ Test passed
+        if: success()
+        run: echo "All tests passed successfully!"
+
+      - name: ❌ Test failed
+        if: failure()
+        run: echo "Some tests failed. Please check the logs above."
+
+      - name: 📊 Test Summary
+        if: always()
+        run: |
+          echo "### Test Results 🧪" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Tests completed on Node.js ${{ matrix.node-version }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY

@@ -4,7 +4,7 @@
   "description": "프로그래머스 문제 풀이 템플릿",
   "type": "module",
   "scripts": {
-    "test": "pnpm exec vitest",
+    "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
     "test:file": "vitest run"
@@ -19,9 +19,9 @@
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^25.0.3",
-    "@vitest/ui": "^2.1.8",
+    "@vitest/ui": "^4.0.18",
     "better-sqlite3": "^12.6.2",
     "typescript": "^5.9.3",
-    "vitest": "^2.1.8"
+    "vitest": "^4.0.18"
   }
 }
